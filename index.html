@@ -3,10 +3,71 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Helix Strat</title>
+  <title>HÉLIXSTRAT — Diplomatie territoriale</title>
+  <meta name="description" content="HÉLIXSTRAT, cabinet de diplomatie territoriale : pérenniser vos projets face aux risques d'acceptabilité locale et de blocages réglementaires.">
+  <!-- Tant que le site est protégé par un code, on demande aux moteurs de recherche de ne pas l'indexer -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+  <link rel="preload" href="fonts/rozha-one-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>Helix Strat</h1>
-  <p>Site en construction 🚧</p>
+
+  <!-- ============ 1. PAGE D'ACCÈS (code) ============ -->
+  <div class="acces" id="acces">
+    <form class="acces__carte" id="acces-form" novalidate>
+      <img class="acces__logo" src="img/logo.png" alt="HÉLIXSTRAT — Diplomatie territoriale" width="1200" height="280">
+      <img class="helice" src="img/helice.png" alt="" width="414" height="114">
+
+      <label class="acces__label" for="acces-code">Accès réservé</label>
+      <p class="acces__aide">Saisissez le code qui vous a été communiqué.</p>
+
+      <div class="acces__ligne">
+        <input class="acces__champ" id="acces-code" name="code" type="password"
+               autocomplete="off" autocapitalize="off" spellcheck="false" required
+               placeholder="Code d'accès" aria-describedby="acces-erreur">
+        <button class="bouton" type="submit">Entrer</button>
+      </div>
+
+      <p class="acces__erreur" id="acces-erreur" role="alert" aria-live="assertive"></p>
+    </form>
+  </div>
+
+  <!-- ============ 2. SITE (visible après le code) ============ -->
+  <main class="site" id="site" hidden>
+
+    <!-- Étape 1 : page provisoire pour valider couleurs et polices.
+         Elle sera remplacée par la bannière et les sections à l'étape suivante. -->
+    <section class="chantier">
+      <h1 class="titre-site">HÉLIXSTRAT</h1>
+      <p class="baseline">Diplomatie territoriale</p>
+
+      <img class="helice" src="img/helice.png" alt="" width="414" height="114">
+
+      <p class="texte">
+        Ceci est une page de vérification. Le titre est en <strong>Rozha One</strong> (taille 60),
+        la baseline en <strong>Walkway UltraBold</strong> (taille 24), et ce texte en <strong>Roboto Regular</strong>.
+        Les accents s'affichent-ils bien ? À, é, è, ê, ç, ô, « guillemets ».
+      </p>
+
+      <p class="slogan">Un slogan en Walkway Bold</p>
+
+      <ul class="nuancier" aria-label="Couleurs de la charte">
+        <li style="--c:#4d291a"><span>#4d291a</span></li>
+        <li style="--c:#693c0f"><span>#693c0f</span></li>
+        <li style="--c:#825036"><span>#825036</span></li>
+        <li style="--c:#bda078"><span>#bda078</span></li>
+        <li style="--c:#ffe2ae" class="clair"><span>#ffe2ae</span></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
