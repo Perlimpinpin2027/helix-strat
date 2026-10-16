@@ -41,30 +41,96 @@
   <!-- ============ 2. SITE (visible après le code) ============ -->
   <main class="site" id="site" hidden>
 
-    <!-- Étape 1 : page provisoire pour valider couleurs et polices.
-         Elle sera remplacée par la bannière et les sections à l'étape suivante. -->
-    <section class="chantier">
-      <h1 class="titre-site">HÉLIXSTRAT</h1>
-      <p class="baseline">Diplomatie territoriale</p>
+    <!-- ---------- Bannière ---------- -->
+    <header class="banniere">
+      <img class="banniere__image"
+           src="img/banniere-1200.jpg"
+           srcset="img/banniere-1200.jpg 1200w, img/banniere-2100.jpg 2104w"
+           sizes="100vw" width="2104" height="1098"
+           alt="Gravure au crayon : l'Assemblée nationale, un village et sa rivière, des champs.">
+      <div class="banniere__titre">
+        <h1 class="titre-site">HÉLIXSTRAT</h1>
+        <p class="baseline">Diplomatie territoriale</p>
+      </div>
+    </header>
 
-      <img class="helice" src="img/helice.png" alt="" width="414" height="114">
-
-      <p class="texte">
-        Ceci est une page de vérification. Le titre est en <strong>Rozha One</strong> (taille 60),
-        la baseline en <strong>Walkway UltraBold</strong> (taille 24), et ce texte en <strong>Roboto Regular</strong>.
-        Les accents s'affichent-ils bien ? À, é, è, ê, ç, ô, « guillemets ».
+    <!-- ---------- La promesse ---------- -->
+    <section class="promesse" aria-labelledby="titre-objectif">
+      <p class="surtitre">Notre objectif</p>
+      <h2 class="promesse__titre" id="titre-objectif">
+        Pérenniser vos projets face aux risques d'acceptabilité locale et de blocages réglementaires.
+      </h2>
+      <p class="promesse__intro">
+        Pour accomplir cette tâche, notre accompagnement de terrain vise à favoriser le dialogue
+        et l'ancrage local. Notre approche en diplomatie territoriale remplit ainsi
+        <strong>5&nbsp;missions</strong>&nbsp;:
       </p>
 
-      <p class="slogan">Un slogan en Walkway Bold</p>
-
-      <ul class="nuancier" aria-label="Couleurs de la charte">
-        <li style="--c:#4d291a"><span>#4d291a</span></li>
-        <li style="--c:#693c0f"><span>#693c0f</span></li>
-        <li style="--c:#825036"><span>#825036</span></li>
-        <li style="--c:#bda078"><span>#bda078</span></li>
-        <li style="--c:#ffe2ae" class="clair"><span>#ffe2ae</span></li>
-      </ul>
+      <!-- Icônes : Lucide (licence ISC), redessinées au trait -->
+      <ol class="missions">
+        <li class="mission">
+          <svg class="mission__picto" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m11 17 2 2a1 1 0 1 0 3-3"/>
+            <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/>
+            <path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/>
+          </svg>
+          <p class="mission__texte">Représentation d'intérêts et négociation</p>
+        </li>
+        <li class="mission">
+          <svg class="mission__picto" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M10 10h4"/><path d="M19 7V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3"/>
+            <path d="M20 21a2 2 0 0 0 2-2v-3.851c0-1.39-2-2.962-2-4.829V8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v11a2 2 0 0 0 2 2z"/>
+            <path d="M22 16H2"/>
+            <path d="M4 21a2 2 0 0 1-2-2v-3.851c0-1.39 2-2.962 2-4.829V8a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2z"/>
+            <path d="M9 7V4a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3"/>
+          </svg>
+          <p class="mission__texte">Observation et analyse</p>
+        </li>
+        <li class="mission">
+          <svg class="mission__picto" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <p class="mission__texte">Intégration des parties prenantes, désamorçage des risques politiques et sociaux</p>
+        </li>
+        <li class="mission">
+          <svg class="mission__picto" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/>
+            <path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/>
+          </svg>
+          <p class="mission__texte">Gestion de crise</p>
+        </li>
+        <li class="mission">
+          <svg class="mission__picto" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/>
+            <path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/>
+            <path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+          </svg>
+          <p class="mission__texte">Rayonnement culturel et économique</p>
+        </li>
+      </ol>
     </section>
+
+    <!-- ---------- Le diplomate ---------- -->
+    <section class="diplomate">
+      <p class="diplomate__accroche">
+        Un diplomate doit savoir parler plusieurs langues pour être sûr d'être bien compris.
+      </p>
+      <div class="diplomate__texte">
+        <p>
+          Nous parlons le langage des élus, des techniciens des collectivités, des acteurs économiques,
+          associatifs et des citoyens.
+        </p>
+        <p>
+          Il doit aussi maîtriser le cadre réglementaire et juridique dans lequel s'inscrivent les projets
+          afin de mettre de l'huile dans les rouages administratifs à toutes les étapes.
+        </p>
+      </div>
+    </section>
+
+    <img class="helice" src="img/helice.png" alt="" width="414" height="114">
+
+    <!-- Étape suivante : les 4 récits -->
 
   </main>
 

@@ -224,37 +224,190 @@ img { max-width: 100%; height: auto; display: block; }
 
 .texte { max-width: 62ch; margin: 0 auto; }
 
-/* ---------- 6. Page provisoire (étape 1) ---------- */
-.chantier {
-  max-width: 900px;
+.surtitre {
+  margin: 0 0 .75rem;
+  font-weight: 500;
+  font-size: .85rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--brun-moyen);
+}
+
+/* ---------- 6. Bannière ---------- */
+.banniere {
+  position: relative;
+  overflow: hidden;
+}
+
+.banniere__image {
+  width: 100%;
+  aspect-ratio: 2104 / 1098;
+  min-height: 460px;
+  max-height: 92vh;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* fondu du bas de la gravure vers la couleur de la page */
+.banniere::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 18%;
+  background: linear-gradient(to bottom, rgba(251,249,245,0), var(--papier));
+  pointer-events: none;
+}
+
+.banniere__titre {
+  position: absolute;
+  top: 6.5%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 0 1rem;
+}
+/* halo couleur papier derrière le titre, pour l'adoucir sur le ciel */
+.banniere__titre::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  width: min(900px, 110%);
+  height: 190%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(closest-side, rgba(251,249,245,.9), rgba(251,249,245,.6) 55%, rgba(251,249,245,0));
+}
+.banniere__titre { isolation: isolate; }
+
+/* Le titre garde la taille 60 sur un écran standard, et suit la largeur de la gravure */
+.banniere .titre-site { font-size: clamp(44px, 4.7vw, 96px); }
+.banniere .baseline   { font-size: clamp(19px, 1.875vw, 38px); }
+
+@media (max-width: 700px) {
+  .banniere__image { object-position: 30% top; }
+  .banniere__titre { top: 2.25rem; }
+}
+
+/* ---------- 7. La promesse et les 5 missions ---------- */
+.promesse {
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 5rem 1rem;
+  padding: 4.5rem 1.25rem 3rem;
   text-align: center;
 }
 
-.nuancier {
-  list-style: none;
-  padding: 0;
-  margin: 2.5rem 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: .75rem;
+.promesse__titre {
+  max-width: 30ch;
+  margin: 0 auto;
+  font-family: var(--police-titre);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  line-height: 1.25;
+  color: var(--brun-fonce);
 }
-.nuancier li {
-  width: 110px;
-  height: 80px;
-  background: var(--c);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: .4rem;
-  font-size: .8rem;
-  color: #fff;
-}
-.nuancier li.clair { color: var(--brun-fonce); }
 
-@media (max-width: 600px) {
-  .titre-site { font-size: 44px; }
-  .baseline   { font-size: 20px; }
+.promesse__intro {
+  max-width: 62ch;
+  margin: 1.75rem auto 3rem;
 }
+
+.missions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.mission {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 2.25rem 1.25rem 2rem;
+  background: var(--fond-carte);
+  color: var(--texte-carte);
+  border-radius: 2px;
+}
+
+/* chaque aplat prend une couleur de la charte, du plus foncé au plus clair */
+.mission:nth-child(1) { --fond-carte: var(--brun-fonce); --texte-carte: var(--creme); --picto: var(--sable); }
+.mission:nth-child(2) { --fond-carte: var(--brun);       --texte-carte: var(--creme); --picto: var(--sable); }
+.mission:nth-child(3) { --fond-carte: var(--brun-moyen); --texte-carte: var(--creme); --picto: var(--creme); }
+.mission:nth-child(4) { --fond-carte: var(--sable);      --texte-carte: var(--brun-fonce); --picto: var(--brun-fonce); }
+.mission:nth-child(5) { --fond-carte: var(--creme);      --texte-carte: var(--brun-fonce); --picto: var(--brun-moyen); }
+
+.mission__picto {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  fill: none;
+  stroke: var(--picto);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mission__texte {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Tablette : 3 + 2 cartes, centrées */
+@media (max-width: 1023px) {
+  .missions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .mission { width: calc((100% - 2rem) / 3); }
+}
+
+/* Mobile : une carte par ligne, picto à gauche */
+@media (max-width: 640px) {
+  .mission {
+    width: 100%;
+    flex-direction: row;
+    text-align: left;
+    padding: 1.25rem 1.25rem;
+  }
+  .mission__picto { width: 36px; height: 36px; }
+}
+
+/* ---------- 8. Le diplomate ---------- */
+.diplomate {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.diplomate__accroche {
+  margin: 0;
+  font-family: var(--police-titre);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  line-height: 1.3;
+  color: var(--brun-fonce);
+}
+
+.diplomate__texte {
+  border-left: 2px solid var(--sable);
+  padding-left: 2rem;
+}
+.diplomate__texte p { margin: 0 0 1rem; }
+.diplomate__texte p:last-child { margin-bottom: 0; }
+
+@media (max-width: 760px) {
+  .diplomate { grid-template-columns: 1fr; gap: 1.5rem; }
+  .diplomate__texte { padding-left: 1.25rem; }
+}
+
+/* séparateur entre sections */
+.site > .helice { margin: 4rem auto; }
