@@ -130,7 +130,74 @@
 
     <img class="helice" src="img/helice.png" alt="" width="414" height="114">
 
-    <!-- Étape suivante : les 4 récits -->
+    <!-- ---------- Les 4 récits ---------- -->
+    <section class="recits" aria-labelledby="titre-recits">
+      <div class="recits__intro">
+        <h2 class="recits__titre" id="titre-recits">À quel moment a-t-on besoin de diplomatie territoriale&nbsp;?</h2>
+        <p class="recits__questions">Est-ce adapté au secteur public ou au secteur privé&nbsp;? Dans quels domaines&nbsp;?</p>
+        <p class="slogan">La réponse dans ces quatre récits.</p>
+      </div>
+
+      <!-- Les 4 vignettes, puis les 4 suites.
+           Sur ordinateur, la suite s'ouvre sous la rangée ; sur mobile, juste sous sa vignette. -->
+      <div class="recits__grille">
+
+        <article class="recit" style="--ordre:1; --ordre-t:1">
+          <img class="recit__image" src="img/recits/recit-1.webp" width="600" height="600" loading="lazy"
+               alt="Dessin au trait : un entrepôt logistique avec un camion et un chariot élévateur.">
+          <p class="recit__accroche">Qu'est-ce que tu vois ici&nbsp;? Une friche&nbsp;? Regarde bien. Tu ne vois pas&nbsp;? C'est notre prochaine plateforme logistique.</p>
+          <button class="recit__bouton" type="button" aria-expanded="false" aria-controls="suite-1">Lire la suite</button>
+        </article>
+
+        <article class="recit" style="--ordre:3; --ordre-t:2">
+          <img class="recit__image" src="img/recits/recit-2.webp" width="600" height="600" loading="lazy"
+               alt="Dessin au trait : un immeuble neuf en centre-ville, avec une boulangerie et une épicerie au rez-de-chaussée.">
+          <p class="recit__accroche">Félicitations à toute l'équipe&nbsp;! Ce soir, ce n'est pas un candidat qui a gagné, c'est un projet municipal de dynamisme citoyen et économique.</p>
+          <button class="recit__bouton" type="button" aria-expanded="false" aria-controls="suite-2">Lire la suite</button>
+        </article>
+
+        <article class="recit" style="--ordre:5; --ordre-t:5">
+          <img class="recit__image" src="img/recits/recit-3.webp" width="600" height="600" loading="lazy"
+               alt="Dessin au trait : un supermarché en entrée de ville, son parking et ses clients.">
+          <p class="recit__accroche">Je ne sais pas pour les autres franchisés, mais nous en ce moment on voit bien que le contexte global pèse sur les consommateurs.</p>
+          <button class="recit__bouton" type="button" aria-expanded="false" aria-controls="suite-3">Lire la suite</button>
+        </article>
+
+        <article class="recit" style="--ordre:7; --ordre-t:6">
+          <img class="recit__image" src="img/recits/recit-4.webp" width="600" height="600" loading="lazy"
+               alt="Dessin au trait : un quai fluvial avec une péniche, une grue et une halle de déchargement.">
+          <p class="recit__accroche">On a bientôt le conseil d'administration de l'EPIC, on doit s'assurer que tout le monde ait bien compris.</p>
+          <button class="recit__bouton" type="button" aria-expanded="false" aria-controls="suite-4">Lire la suite</button>
+        </article>
+
+        <div class="recit__suite" id="suite-1" style="--ordre:2; --ordre-t:3" hidden>
+          <p><strong>Qu'est-ce que tu vois ici&nbsp;? Une friche&nbsp;? Regarde bien. Tu ne vois pas&nbsp;? C'est notre prochaine plateforme logistique.</strong></p>
+          <p>Mais attention, pas une de plus, pas une parmi d'autres. Cette «&nbsp;friche&nbsp;» comme tu dis, ce sera demain notre vaisseau amiral, la preuve de notre savoir-faire et de notre capacité à nous inscrire dans le futur&nbsp;: bâtiments autonomes en énergie, flux gérés par des agents conversationnels, bornes de recharge rapide pour nos futurs camions électriques… J'ai une première esquisse avec mes archis et mes partenaires pour les bornes, mais je dois encore voir RTE pour le raccordement électrique et rencontrer les élus. Il paraît qu'il y a des pavillons pas loin et que certains au conseil municipal verraient d'un mauvais œil l'arrivée de nos camions en trois-huit. Avant de nous lancer on a besoin de savoir où on met les pieds, la zone est idéale mais si c'est pour enchaîner les recours et que le projet sorte dans 15 ans c'est pas la peine&nbsp;!</p>
+          <button class="recit__fermer" type="button">Refermer</button>
+        </div>
+
+        <div class="recit__suite" id="suite-2" style="--ordre:4; --ordre-t:4" hidden>
+          <p><strong>Félicitations à toute l'équipe&nbsp;! Ce soir, ce n'est pas un candidat qui a gagné, c'est un projet municipal de dynamisme citoyen et économique.</strong></p>
+          <p>Nous ne sommes pas juste un satellite, une banlieue dortoir. Ça fait maintenant 3 mandats que je me bats pour que notre ville conserve ses services et pour que nos habitants continuent à tisser du lien. Il y a eu des avancées mais force est de constater qu'il reste beaucoup à faire pour faire en sorte que chacun sorte de chez soi, s'engage dans la vie locale, et pour que nos commerces soient préservés. On n'a pas le choix&nbsp;: il faut attirer plus d'habitants et on ne peut plus s'étendre avec la loi ZAN. Vous le savez, ça fait 7 ans que je me bats avec l'administration pour que notre projet du Cèdre voie le jour. La SNCF est partante, un promoteur a été choisi et le programme nous permettrait même en plus des logements d'avoir notre crèche municipale. L'enquête publique a été annoncée avant les élections et je sais que certains n'y sont pas favorables et s'organisent.</p>
+          <button class="recit__fermer" type="button">Refermer</button>
+        </div>
+
+        <div class="recit__suite" id="suite-3" style="--ordre:6; --ordre-t:7" hidden>
+          <p><strong>Je ne sais pas pour les autres franchisés, mais nous en ce moment on voit bien que le contexte global pèse sur les consommateurs.</strong></p>
+          <p>Comme vous j'ai mis en place un drive, mais avec un e-commerce de plus en plus agressif sur les prix et qui se met à parler de livrer par drone… on doit se réinventer et repenser notre modèle. Une piste intéressante c'est l'optimisation de nos fonciers, je sais que certains d'entre nous font déjà des ombrières solaires, moi je suis en discussion avec une entreprise qui fait du mini data center pour lui louer de la surface. Et en parlant de foncier, j'ai appris récemment que le maire est en train de réfléchir à faire évoluer l'entrée de ville, là où se trouve mon magasin. Ce sont des bruits de couloirs mais je n'ai pas été consultée directement. Je pense qu'il y a un vrai enjeu à intégrer ces discussions et à jouer un rôle dans la vie locale, sans quoi l'évolution des entrées de ville et de nos zones commerciales va nous échapper.</p>
+          <button class="recit__fermer" type="button">Refermer</button>
+        </div>
+
+        <div class="recit__suite" id="suite-4" style="--ordre:8; --ordre-t:8" hidden>
+          <p><strong>On a bientôt le conseil d'administration de l'EPIC, on doit s'assurer que tout le monde ait bien compris.</strong></p>
+          <p>Si nous voulons développer le transport fluvial nous n'avons pas non plus des centaines de possibilités&nbsp;: le quai de déchargement doit être positionné à proximité de la nationale pour que les camions puissent rejoindre l'autoroute le plus vite possible. Maintenant que le projet a été partagé, que nous avons mené nos études avec l'EPTB, tout ne peut pas être remis à plat parce que les habitants en aval du quai ont toujours peur d'être inondés. Je ne comprends pas pourquoi ce collectif d'habitants diffuse de fausses informations. La DDT m'a appelé ce matin et m'a dit qu'ils ont écrit au Préfet… En plus maintenant nous avons également une association nationale de défense de l'environnement qui s'est saisie du dossier et sollicite une audition auprès du Président de Région. Il faut absolument nous assurer du soutien des élus et de nos partenaires avant le Conseil d'Administration.</p>
+          <button class="recit__fermer" type="button">Refermer</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Étape suivante : appel à l'action + formulaire de contact -->
 
   </main>
 

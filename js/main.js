@@ -69,3 +69,53 @@
     champ.removeAttribute("aria-invalid");
   });
 })();
+
+/* ---------- 2. Les récits : « Lire la suite » ----------
+   Un seul récit ouvert à la fois. Cliquer à nouveau referme. */
+(function () {
+  const boutons = document.querySelectorAll(".recit__bouton");
+
+  function fermerTout() {
+    boutons.forEach(function (b) {
+      b.setAttribute("aria-expanded", "false");
+      b.textContent = "Lire la suite";
+      b.closest(".recit").classList.remove("est-ouvert");
+      document.getElementById(b.getAttribute("aria-controls")).hidden = true;
+    });
+  }
+
+  // Fait défiler doucement pour que le texte ouvert soit visible
+  function rendreVisible(el) {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < 0 || rect.top > window.innerHeight * 0.75) {
+      const doux = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      el.scrollIntoView({ behavior: doux ? "smooth" : "auto", block: "start" });
+    }
+  }
+
+  boutons.forEach(function (bouton) {
+    const suite = document.getElementById(bouton.getAttribute("aria-controls"));
+
+    bouton.addEventListener("click", function () {
+      const dejaOuvert = bouton.getAttribute("aria-expanded") === "true";
+      fermerTout();
+      if (dejaOuvert) return;
+
+      bouton.setAttribute("aria-expanded", "true");
+      bouton.textContent = "Refermer";
+      bouton.closest(".recit").classList.add("est-ouvert");
+      suite.hidden = false;
+      rendreVisible(suite);
+    });
+
+    // Bouton « Refermer » en bas du texte : referme et revient à la vignette
+    suite.querySelector(".recit__fermer").addEventListener("click", function () {
+      fermerTout();
+      const vignette = bouton.closest(".recit");
+      if (vignette.getBoundingClientRect().top < 0) {
+        vignette.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      bouton.focus({ preventScroll: true });
+    });
+  });
+})();
